@@ -1,4 +1,4 @@
-import 'components/transaction_auth_dialog.dart';
+import 'screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class FlutterHttpCommunication extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: TransactionAuthDialog(),
+      home: Dashboard(),
     );
   }
 }
