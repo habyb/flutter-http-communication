@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterhttpcommunication/components/response_dialog.dart';
 import 'package:flutterhttpcommunication/components/transaction_auth_dialog.dart';
 import 'package:flutterhttpcommunication/http/webclients/transaction_webclient.dart';
 import 'package:flutterhttpcommunication/models/contact.dart';
@@ -98,10 +99,15 @@ class _TransactionFormState extends State<TransactionForm> {
     )
         .then((transaction) {
       if (transaction != null) {
-        Navigator.pop(context);
+
+        showDialog(context: context, builder: (contextDialog){
+          return SuccessDialog('successful transaction');
+        }).then((value) => Navigator.pop(context));
       }
-    }).catchError((e){
-      print(e);
-    });
+    }).catchError((e) {
+      showDialog(context: context, builder: (contextDialog) {
+        return FailureDialog(e.message);
+      });
+    }, test: (e) => e is Exception);
   }
 }
