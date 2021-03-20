@@ -100,6 +100,8 @@ class _TransactionFormState extends State<TransactionForm> {
       if (transaction != null) {
         Navigator.pop(context);
       }
+    }).catchError((e){
+      print(e);
     });
   }
 }
