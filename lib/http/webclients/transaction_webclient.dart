@@ -31,6 +31,8 @@ class TransactionWebClient {
     }
 
     _throwHttpError(response.statusCode);
+
+    return null;
   }
 
   void _throwHttpError(int statusCode) =>
